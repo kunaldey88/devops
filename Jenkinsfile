@@ -21,7 +21,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build ${REGISTRY} + ":$BUILD_NUMBER"
+                    dockerImage = docker.build ${env.REGISTRY} + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy image') {
         steps{
             script{
-                docker.withRegistry("https://" + ${REGISTRY}, "ecr:us-east-1:" + ${REGISTRY_CREDENTIALS_ID}) {
+                docker.withRegistry("https://" + ${env.REGISTRY}, "ecr:us-east-1:" + ${env.REGISTRY_CREDENTIALS_ID}) {
                     dockerImage.push()
                 }
             }
