@@ -22,11 +22,8 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                /*script {
-                    dockerImage = docker.build REGISTRY + ":$BUILD_NUMBER"
-                }*/
-                dir(WORKING_DIR) {
-                    sh 'docker build -t test-apps-2:latest .'
+                script {
+                    dockerImage = docker.build("abc:latest")
                 }
 
             }
