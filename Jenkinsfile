@@ -4,12 +4,13 @@ pipeline {
         REGISTRY = '554358105146.dkr.ecr.us-east-1.amazonaws.com/py-app-containers'
         REGISTRY_CREDENTIALS_ID = 'AWS_CREDS_1'
         DOCKER_IMAGE = ''
-        WORKING_DIR = '/Users/pratibhapandey/Personal/PyProjects/jenkins-workspace'
+        WORKING_DIR = '/Users/pratibhapandey/Personal/PyProjects/jenkins-workspace/'
     }
     stages {
         stage('Custom Checkout') {
             steps {
                 dir(WORKING_DIR) {
+                    sh 'echo $PATH'
                     checkout scmGit(
                     branches: [[name: 'main']],
                     userRemoteConfigs: [[credentialsId: 'GITHUB_TOKEN2',
