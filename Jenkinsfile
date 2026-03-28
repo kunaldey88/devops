@@ -38,8 +38,8 @@ pipeline {
                     dockerImage.push()
                 }
             }
-        }*/
-    }
+        }
+    }*/
     }
     post {
         always {
