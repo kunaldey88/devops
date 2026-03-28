@@ -4,7 +4,7 @@ pipeline {
         REGISTRY = '554358105146.dkr.ecr.us-east-1.amazonaws.com/py-app-containers'
         REGISTRY_CREDENTIALS_ID = 'AWS_CREDS_1'
         DOCKER_IMAGE = ''
-        WORKING_DIR='/Users/pratibhapandey/Personal/PyProjects/jenkins-workspace'
+        WORKING_DIR = '/Users/pratibhapandey/Personal/PyProjects/jenkins-workspace'
     }
     stages {
         stage('Custom Checkout') {
@@ -24,7 +24,7 @@ pipeline {
                 /*script {
                     dockerImage = docker.build REGISTRY + ":$BUILD_NUMBER"
                 }*/
-                dir($WORKING_DIR) {
+                dir(WORKING_DIR) {
                     sh 'docker build -t test-apps-2:latest .'
                 }
 
